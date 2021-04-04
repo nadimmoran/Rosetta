@@ -114,25 +114,6 @@ function xp(message) {
       message.flags.push(args.shift().slice(1));
     }
 	  
-  if(msg.startsWith(prefix+"rules")){
-    message.delete()
-    
-    let Ejem = new MessageEmbed()
-	.setColor('#872fc6')
-	.setTitle('📌REGLAS DEL SERVIDOR')
-	.setDescription('Reglamentos de la Discordia para tener una buena Comunidad, incumplirlas supone un **Warn** o **Ban** dada la situación.')
-	.addField("1️⃣ Reglamento", "🤝 Sé respetuoso con los demás.")
-	.addField("2️⃣ Reglamento", "🔇 Evite temas bélicos que implique discusiones innecesarias.")
-	.addField("3️⃣ Reglamento", "🔞 Prohibido contenido y/o material NSFW.")
-	.addField("4️⃣ Reglamento", "🔰 Use los canales adecuados, mas ayuda en **#🔎soporte**.")
-	.addField("5️⃣ Reglamento", "📍 Evite todo tipo de Links, Webs y Redes Sociales, use **#🌐spam.**")
-	.setThumbnail('https://cdn.discordapp.com/attachments/735730825030795344/826690705069834280/final.png')
-	.setTimestamp()
-	.setFooter('Nadim', 'https://cdn.discordapp.com/attachments/604403312829136907/826895935774392380/R.png');
-
-	message.channel.send(Ejem);
-  }
-  
   if(msg.startsWith(prefix+"upgrade")){
     message.delete()
 	let Up = new MessageEmbed()
@@ -357,4 +338,4 @@ client.on('message', async message => {
 })
   
 //TOKEN DE BOT
-client.login("NzEwNjMyMDQ5OTExNzkxNjkx.Xr3Rqw.Wa8n7EaWIds_Fch0fEWeTwHJtE0");
+client.login("Token");
