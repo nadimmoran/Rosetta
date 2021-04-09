@@ -64,7 +64,7 @@ function xp(message) {
     //Si un Usuario sube de nivel se le notifica
     var newLevel = db.add(`guild_${message.guild.id}_level_${message.author.id}`, 1)
     db.subtract(`guild_${message.guild.id}_xp_${message.author.id}`, xpNeeded)
-    client.channels.cache.get('826620399323709501').send(`🎉 Hola ${message.author}✨ Gracias a tu experiencia lograste subir a tu siguiente 🎊 **NIVEL ${newLevel}** 🎊`)
+    client.channels.cache.get('826620399323709501').send(`🎉 Hola ${message.author} ✨ Gracias a tu experiencia lograste subir a tu siguiente 🎊 **NIVEL ${newLevel}** 🎊`)
   }
 }
   // MODERACION ANTI-BadWords
@@ -114,6 +114,25 @@ function xp(message) {
       message.flags.push(args.shift().slice(1));
     }
 	  
+  if(msg.startsWith(prefix+"rules")){
+    message.delete()
+    
+    let Ejem = new MessageEmbed()
+	.setColor('#872fc6')
+	.setTitle('📌REGLAS DEL SERVIDOR')
+	.setDescription('Reglamentos de la Discordia para tener una buena Comunidad, incumplirlas supone un **Warn** o **Ban** dada la situación.')
+	.addField("1️⃣ Reglamento", "🤝 Sé respetuoso con los demás.")
+	.addField("2️⃣ Reglamento", "🔇 Evite temas bélicos que implique discusiones innecesarias.")
+	.addField("3️⃣ Reglamento", "🔞 Prohibido contenido y/o material NSFW.")
+	.addField("4️⃣ Reglamento", "🔰 Use los canales adecuados, mas ayuda en **#🔎soporte**.")
+	.addField("5️⃣ Reglamento", "📍 Evite todo tipo de Links, Webs y Redes Sociales, use **#🌐spam.**")
+	.setThumbnail('https://cdn.discordapp.com/attachments/735730825030795344/826690705069834280/final.png')
+	.setTimestamp()
+	.setFooter('Nadim', 'https://cdn.discordapp.com/attachments/604403312829136907/826895935774392380/R.png');
+
+	message.channel.send(Ejem);
+  }
+  
   if(msg.startsWith(prefix+"upgrade")){
     message.delete()
 	let Up = new MessageEmbed()
@@ -192,16 +211,15 @@ let Game3 = new MessageEmbed()
   message.channel.send(Game3);
   }
 
-  if(msg.startsWith(prefix+"xp")){
+  if(msg.startsWith(prefix+"fb")){
     message.delete()
     let Rango = new MessageEmbed()
       .setColor("#872fc6")
-      .setTitle("Sistema de Niveles basados en XP")
-      .setDescription('Esta herramienta te da el poder de tener experiencia acorde a tu interacción del server como comentar o ser activo, acumular experiencia subes de Nivel y así sucesivamente.')
-	    .addField('¿Cómo veo mi Nivel y Experiencia?', `Ve al canal **#🌐spam-bot**, allí esriba este comando: **¡rank**`)
-      .addField('¿Qué gano con esto?', 'Simplemente conseguirás XP y subir de LVL, a medida la comunidad expanda habrá Recompensas entorno a su Nivel.')
-      .addField('Recomendaciones', 'Si tiene ideas o conoce funciones para mejorar nuestro bot puede escribirlo en **#💡sugerencia**')
-      .setFooter('Nadim', 'https://cdn.discordapp.com/attachments/604403312829136907/826895935774392380/R.png');
+      .setTitle("Facebook FanPage")
+      .setDescription(`
+	  🎉 Hey hay un nuevo video en nuestra página de FB, ven a ver ✨
+	  🎊 Link: https://fb.watch/4LiO-xgvKL/ 🎊`)
+      .setFooter('Nadim', 'https://cdn.discordapp.com/attachments/735730825030795344/826690705069834280/final.png');
             
   message.channel.send(Rango);
   }
@@ -338,4 +356,4 @@ client.on('message', async message => {
 })
   
 //TOKEN DE BOT
-client.login("Token");
+client.login("NzEwNjMyMDQ5OTExNzkxNjkx.Xr3Rqw.96uHsmwPjgsD3EzSN95p-JM73zo");
