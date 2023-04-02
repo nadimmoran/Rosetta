@@ -5,7 +5,6 @@ const client = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 const Canvacord = require("canvacord");
 const db = require('quick.db');
-const weather = require('weather-js');
 
 //ESTADO DE PERFIL DE BOT
 client.on("ready", () => {
@@ -126,7 +125,8 @@ function xp(message) {
     while (args[0] && args[0][0] === "--") {
       message.flags.push(args.shift().slice(1));
     }
-	  
+	
+    //MESSAGE EMBED REGLAS
   if(msg.startsWith(prefix+"rules")){
     message.delete()
     
@@ -144,97 +144,6 @@ function xp(message) {
 	.setFooter('Nadim', 'https://cdn.discordapp.com/attachments/604403312829136907/826895935774392380/R.png');
 
 	message.channel.send(Ejem);
-  }
-  
-  if(msg.startsWith(prefix+"upgrade")){
-    message.delete()
-	let Up = new MessageEmbed()
-	  .setColor("#872fc6")
-  	.setTitle("Yuzu & Ryujinx | Recursos Esenciales")
-	  .setDescription(`
-1. Patch para compilar Yuzu Early Access en Linux: https://github.com/pineappleEA/Pineapple-Linux
-2. Ryujinx Custom Build Pre-Compilados: https://ci.appveyor.com/project/gdkchan/ryujinx/history
-3. Las Keys actuales: https://www.mediafire.com/file/eu3oou9yqod9e67/YuzuKeys.rar/file
-4. El Firmware actual: https://darthsternie.net/switch-firmwares/
-`)
-            
-    message.channel.send(Up);
-	}
-  
-  if(msg.startsWith(prefix+"firmware")){
-    message.delete()
-    
-    let Game = new MessageEmbed()
-      .setColor("#872fc6")
-			.setTitle("Instalación/Actualización de Firmware")
-			.setDescription(`
-			Yuzu al igual que Ryujinx usan Firmware como recurso para que la minoría de juegos funcionen como deben y ayuden a solucionar crash/softlocks en Mario Kart 8 Deluxe, New Super Mario Bros. U Ddeluxe o incluso Super Smash Bros. Ultimate y otros.
-			**Paso 1:**
-			Descargue el Fimrware a su última versión desde aquí: https://darthsternie.net/switch-firmwares/
-			**Paso 2:**
-			Presione la tecla Windows o Inicio + R, le aparecerá la ventana Ejecutar y escriba **%appdata%** y presione Enter.
-			**Paso 3:**
-			Se Abrirá una carpeta con dirección **Appdata/Roaming** ahora entre a la carpeta **yuzu/nand/system/Contents/registered/**
-			**Paso 4:**
-			Ahora debe descomprimir el Firmware descargado dentro de la carpeta **registered**, todos los archivos tienen extensión **.nca**, eso es todo.
-			**Nota:**
-			En el caso de actualizar Firmware debe borrar todos los archivos **.nca** de la carpeta **registered** para luego pegar de la nueva versión o simplemente reemplazar todos los archivos.`)
-             
-    message.channel.send(Game);
-  }
-  
-  if(msg.startsWith(prefix+"gpu")){
-    message.delete()
-  
-let Game2 = new MessageEmbed()
-  .setColor("#872fc6")
-  .setTitle("Configuración de la Tarjeta Gráfica GPU e Integrado iGPU")
-	.setDescription(`
-   **GPU Nvidia**
-     . Use OpenGL ----------------------- emulation > configure > graphics > API
-	 ***Varios juegos funciona mejor en Vulkan e incluso corrige problemas gráficos***
-     . Asigne Accurazy Level en Hight --- emulation > configure > graphics > advanced
-	 ***La emulación será mas precisa a coste de rendimiento, de notarlo use Normal***
-     . Deshabilita Assembly Shader ------ emulation > configure > graphics > advanced
-	 ***Con TCR Y BCR muchos juegos están rotos si se activa dicha opción pero otros funciona como deben, espere a Hades para juegos como HW AoC***
-	 **Panel de Nvidia**: https://cdn.discordapp.com/attachments/735730825030795344/815302971767652372/Nvidia.png
-	 -------------------------------------------------------------------------------
-   **GPU & iGPU AMD**
-     . Use Vulkan ----------------------- emulation > configure > graphics > API 
-     . Habilita Async Shaders ----------- emulation > configure > graphics > advanced
-	 ***Los Devs recomiendan usar OS Linux para que funcione de manera eficaz debido al bajo soporte y compatibilidad de drivers en Windows***
-	 -------------------------------------------------------------------------------
-   **iGPU Intel HD, Iris y UHD**
-     . Use Vulkan ---------------------- emulation > configure > graphics > API
-     . Habilite Async Shaders ---------- emulation > configure > graphics > advanced`)
-	 
-	  message.channel.send(Game2);
-  }
-	  
-	if(msg.startsWith(prefix+"mem")){
-    message.delete()
-let Game3 = new MessageEmbed()
-  .setColor("#872fc6")
-  .setTitle("Paginación de Memoria Virtual")
-	.setDescription(`
-  .Si la Ram es menor o igual a **12GB** asigne 15000mb para el valor Inicial y Máximo.
-  .Si la Ram es mayor o igual a **16GB** asigne 10000mb para el valor Inicial y Máximo.
-  **Ejemplo de referencia**: https://cdn.discordapp.com/attachments/735730825030795344/758398226448646165/Pagefile_Windows.gif`)
-            
-  message.channel.send(Game3);
-  }
-
-  if(msg.startsWith(prefix+"fb")){
-    message.delete()
-    let Rango = new MessageEmbed()
-      .setColor("#872fc6")
-      .setTitle("Facebook FanPage")
-      .setDescription(`
-	  🎉 Hey hay un nuevo video en nuestra página de FB, ven a ver ✨
-	  🎊 Link: https://fb.watch/4LiO-xgvKL/ 🎊`)
-      .setFooter('Nadim', 'https://cdn.discordapp.com/attachments/735730825030795344/826690705069834280/final.png');
-            
-  message.channel.send(Rango);
   }
 
 })
